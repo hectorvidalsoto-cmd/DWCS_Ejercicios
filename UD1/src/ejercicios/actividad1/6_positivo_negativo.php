@@ -19,6 +19,10 @@
             $num = strval($_POST['numero']);
             if ($num > 0) {
                 echo "Es positivo";
+            } else if ($num < 0){
+                echo "Es negativo";
+            } else {
+                echo "El numero es 0";
             }
         }
     ?>
