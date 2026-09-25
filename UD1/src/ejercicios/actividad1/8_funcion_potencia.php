@@ -20,7 +20,6 @@
     </form>
 
     <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         function potencia($base, $exponente) {
             $resultado = 1;
             for ($i = 0; $i < $exponente; $i++) {
@@ -29,10 +28,11 @@
             return $resultado;
         }
 
+        if (isset($_POST['base']) && isset($_POST['exponente'])) {
         $base = $_POST['base'];
         $exponente = $_POST['exponente'];
         echo "La respuesta es " . potencia($base, $exponente);
-    }
+        }
     ?>
 
 </body>

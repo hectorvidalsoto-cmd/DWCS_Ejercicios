@@ -9,7 +9,7 @@
 
 <body>
 
-<h1>Mayor, menor y media</h1>
+    <h1>Mayor, menor y media</h1>
 
     <form action="" method="POST">
         <label for="n1">Número 1</label>
@@ -26,7 +26,28 @@
     </form>
 
     <?php
-        // Guardamos los cinco números en un array
+
+    function calcular($array)
+    {
+        $mayor = $array[0];
+        $menor = $array[0];
+        $suma  = 0;
+
+        foreach ($array as $num) {
+            if ($num > $mayor) {
+                $mayor = $num;
+            }
+            if ($num < $menor) {
+                $menor = $num;
+            }
+            $suma += $num;
+        }
+
+        $media = $suma / count($array);
+
+        return [$mayor, $menor, $media];
+    }
+    if (isset($_POST['n1']) && isset($_POST['n2']) && isset($_POST['n3']) && isset($_POST['n4']) && isset($_POST['n5'])) {
         $numeros = [
             $_POST['n1'],
             $_POST['n2'],
@@ -35,33 +56,14 @@
             $_POST['n5']
         ];
 
-        function calcular($array) {
-            $mayor = $array[0];
-            $menor = $array[0];
-            $suma  = 0;
-
-            foreach ($array as $num) {
-                if ($num > $mayor) {
-                    $mayor = $num;
-                }
-                if ($num < $menor) {
-                    $menor = $num;
-                }
-                $suma += $num;
-            }
-
-            $media = $suma / count($array);
-
-            // Devolvemos los tres valores en otro array
-            return [$mayor, $menor, $media];
-        }
-
         $resultado = calcular($numeros);
 
         echo "El mayor es: " . $resultado[0] . "<br>";
         echo "El menor es: " . $resultado[1] . "<br>";
         echo "La media es: " . $resultado[2];
+    }
     ?>
 
 </body>
+
 </html>
