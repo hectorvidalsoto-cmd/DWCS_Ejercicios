@@ -47,20 +47,27 @@
 
         return [$mayor, $menor, $media];
     }
-    if (isset($_POST['n1']) && isset($_POST['n2']) && isset($_POST['n3']) && isset($_POST['n4']) && isset($_POST['n5'])) {
+
+    if (
+        isset($_POST['n1'], $_POST['n2'], $_POST['n3'], $_POST['n4'], $_POST['n5']) &&
+        $_POST['n1'] !== "" && $_POST['n2'] !== "" && $_POST['n3'] !== "" &&
+        $_POST['n4'] !== "" && $_POST['n5'] !== ""
+    ) {
         $numeros = [
-            $_POST['n1'],
-            $_POST['n2'],
-            $_POST['n3'],
-            $_POST['n4'],
-            $_POST['n5']
+            (float) $_POST['n1'],
+            (float) $_POST['n2'],
+            (float) $_POST['n3'],
+            (float) $_POST['n4'],
+            (float) $_POST['n5']
         ];
-
+    
         $resultado = calcular($numeros);
-
+    
         echo "El mayor es: " . $resultado[0] . "<br>";
         echo "El menor es: " . $resultado[1] . "<br>";
         echo "La media es: " . $resultado[2];
+    } else {
+        echo "Rellena todos los campos.";
     }
     ?>
 
