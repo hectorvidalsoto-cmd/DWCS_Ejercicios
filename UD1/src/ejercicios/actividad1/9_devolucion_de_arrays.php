@@ -49,7 +49,7 @@
                 if ($num < $menor) {
                     $menor = $num;
                 }
-                $suma = $suma + $num;
+                $suma += $num;
             }
 
             $media = $suma / count($array);
