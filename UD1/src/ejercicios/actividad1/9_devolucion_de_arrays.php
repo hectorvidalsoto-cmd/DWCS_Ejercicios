@@ -26,8 +26,6 @@
     </form>
 
     <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
         // Guardamos los cinco números en un array
         $numeros = [
             $_POST['n1'],
@@ -63,7 +61,6 @@
         echo "El mayor es: " . $resultado[0] . "<br>";
         echo "El menor es: " . $resultado[1] . "<br>";
         echo "La media es: " . $resultado[2];
-    }
     ?>
 
 </body>
