@@ -23,7 +23,7 @@
     if($_POST["numero"] && $_POST["numero"] !== "") {
         echo "Correcto";
     } else {
-        echo "Respuesta incoreecta, perdiste";
+        echo "Respuesta incorecta, perdiste";
     }
     ?>
 
