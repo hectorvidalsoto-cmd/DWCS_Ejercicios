@@ -21,7 +21,7 @@ class Estudiante extends Persona{
     }
 
     public function mostrarInformacion(): string {
-        return "$nombre, $edad, $grado";
+        return $this->getNombre() . ", " . $this->getEdad() . ", " . $this->grado;
     }
 
 }
