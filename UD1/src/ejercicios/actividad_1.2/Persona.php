@@ -1,13 +1,11 @@
 <?php
-include "Direccion.php";
+
 class Persona
 {
-
-    //Propiedades
-    private string $nombre;
-    private int $edad;
-    private Direccion $direccion;
-
+    // Propiedades
+    protected string $nombre;
+    protected int $edad;
+    protected Direccion $direccion;
 
     public function __construct(string $nombre, int $edad, Direccion $direccion)
     {
@@ -53,15 +51,16 @@ class Persona
 
     public function mostrarDireccionCompleta(): string
     {
-        return $this->direccion->mostrarDireccion();
+        return $this->nombre . " vive en: " . $this->direccion->mostrarDireccion();
     }
 
-    public function esMayorDeEdad(int $edad): bool
+    public function esMayorDeEdad(): bool
     {
-        if ($edad > 18) {
-            return true;
-        } else {
-            return false;
-        }
+        return $this->edad >= 18;
+    }
+
+    public function mostrarInformacion(): string
+    {
+        return "Nombre: " . $this->nombre . " | Edad: " . $this->edad;
     }
 }
