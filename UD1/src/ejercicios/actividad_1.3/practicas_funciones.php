@@ -1,5 +1,4 @@
 <?php
-
 function getConexion()
 {
     //1º Tenemos que establecer la conexión entre PHP y la BD.
@@ -55,45 +54,3 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     );
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insertar videojuego</title>
-</head>
-
-<body>
-<body>
-    <form action="" method="post">
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" required><br>
-        <label for="apellido1">Primer apellido</label>
-        <input type="text" name="apellido1" required><br>
-        <label for="apellido2">Segundo apellido</label>
-        <input type="text" name="apellido2"><br>
-        <label for="nic">NIC</label>
-        <input type="text" name="nic" required><br>
-        <label for="email">Email</label>
-        <input type="email" name="email" required><br>
-        <label for="contrasena">Contraseña</label>
-        <input type="password" name="contrasena" required><br>
-        <button type="submit">Agregar</button>
-    </form>
-
-    <?php
-    //Obtengo usuarios actuales
-    $usuarios = getUsuarios();
-    if (count($usuarios) > 0) {
-        echo "<h1>Usuarios</h1><ul>";
-        foreach ($usuarios as $usuario) {
-            echo "<li>" . $usuario["nombre"] . " - " . $usuario["apellido1"] . " - " . ($usuario["apellido2"] ?? "") . " - " . $usuario["nic"] . " - " . $usuario["email"] . "</li>";
-        }
-        echo "</ul>";
-    }
-    ?>
-
-</body>
-
-</html>
