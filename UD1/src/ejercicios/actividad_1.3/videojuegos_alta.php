@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="videojuegos_login.php" method="post">
+    <form action="videojuegos_alta.php" method="post">
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" required><br>
         <label for="plataforma">Plataforma</label>
@@ -29,11 +29,25 @@
     $videojuego = getVideojuego();
     if(count($videojuego)>0){
 
-        echo "<h1>Clientes</h1><ul>";
+        echo "<table>
+        <tr>
+            <th>Nombre</th>
+            <th>Plataforma</th>
+            <th>Año</th>
+            <th>Género</th>
+            <th>Acción</th>
+        </tr>";
         foreach($videojuego as $videojuego){
-            echo "<li>".$videojuego["nombre"]."- ".$videojuego["plataforma"]."- ".$videojuego["anio_lanzamiento"]."- ".$videojuego["genero"]."</li>";
+            echo "<tr>
+            <td>",$videojuego["nombre"],"</td>
+            <td>",$videojuego["plataforma"],"</td>
+            <td>",$videojuego["anio_lanzamiento"],"</td>
+            <td>",$videojuego["genero"],"</td>
+            <td><a href=\"altamodificacion.php?id=3\">Editar</a></td>
+            <td><a href=\"eliminar.php?id=3\">Eliminar</a></td>
+        </tr>";
         }
-        echo "</ul>";
+        echo "</table>";
     }
     ?>
 

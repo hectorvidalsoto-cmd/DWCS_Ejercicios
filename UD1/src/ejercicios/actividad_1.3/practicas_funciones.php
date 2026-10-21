@@ -18,6 +18,7 @@ function getConexion()
  */
 function addUsuario(string $nombre, string $apellido1, string $apellido2, string $nic, string $email, string $contrasena)
 {
+    $contrasena = hash('sha256', $contrasena);
     $sql = "INSERT INTO usuarios(nombre, apellido1, apellido2, nic, email, contraseña) VALUES ('$nombre','$apellido1','$apellido2','$nic','$email','$contrasena')";
     $conexion = getConexion();
     echo "Consulta ejecutada: <br><span>$sql</span><br>";
@@ -46,7 +47,8 @@ function getUsuarios(): array
 function validar (string $nic, string $password) {
     $toret = [];
     $conexion = getConexion();
-
+    
+    $password = hash('sha256', $password);
     $sql = "SELECT nic, contraseña FROM usuarios WHERE nic = '$nic' and contraseña = '$password'";
     $resultado = $conexion->query($sql);
     $toret = $resultado->fetch();

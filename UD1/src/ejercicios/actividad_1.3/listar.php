@@ -12,8 +12,8 @@
             <th>Nombre</th>
             <th>Plataforma</th>
             <th>Año</th>
-            <th>Nombre</th>
             <th>Género</th>
+            <th>Acción</th>
         </tr>
         <!-- Datos de ejemplo. Tiene que ser dinámico -->
         <tr>
