@@ -43,14 +43,18 @@ function getUsuarios(): array
     return $toret;
 }
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    addUsuario(
-        $_POST['nombre'],
-        $_POST['apellido1'],
-        $_POST['apellido2'],
-        $_POST['nic'],
-        $_POST['email'],
-        $_POST['contrasena']
-    );
+function validar (string $nic, string $password) {
+    $toret = [];
+    $conexion = getConexion();
+
+    $sql = "SELECT nic, contraseña FROM usuarios WHERE nic = '$nic' and contraseña = '$password'";
+    $resultado = $conexion->query($sql);
+    $toret = $resultado->fetch();
+    $conexion = null;
+    if(!$toret){
+        return false;
+    } else {
+        return true;
+    }
 }
 ?>
