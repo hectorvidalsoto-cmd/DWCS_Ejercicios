@@ -47,6 +47,10 @@ function deleteVideojuego(int $id) {
     }
 }
 
+function editVideojuego(int $id, string $nombre, string $plat, int $anho, string $genero) {
+
+}
+
 function getVideojuego(): array
 {
     $toret = [];
