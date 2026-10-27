@@ -26,7 +26,7 @@ function addVideoJuego(string $nombre, string $plat, int $anho, string $genero)
     echo "Consulta ejecutada: <br><span>$sql</span><br>";
     try {
         $filasAfectadas = $conexion->exec($sql);
-        echo "Se ha borrado $filasAfectadas videojuego(s)<br>";
+        echo "Se ha añadido $filasAfectadas videojuego(s)<br>";
     } catch (PDOException $th) {
         echo "Algo ha fallado en la consulta.<br>";
     }
@@ -41,14 +41,44 @@ function deleteVideojuego(int $id) {
     echo "Consulta ejecutada: <br><span>$sql</span><br>";
     try {
         $filasAfectadas = $conexion->exec($sql);
-        echo "Se ha agregado $filasAfectadas videojuego(s)<br>";
+        echo "Se ha borrado $filasAfectadas videojuego(s)<br>";
     } catch (PDOException $th) {
         echo "Algo ha fallado en la consulta.<br>";
     }
 }
 
 function editVideojuego(int $id, string $nombre, string $plat, int $anho, string $genero) {
+    $sql = "UPDATE videojuegos SET nombre = '$nombre', plataforma = '$plat', anio_lanzamiento = '$anho', genero = '$genero' where id = '$id'";
+    $conexion = getConexion();
+    echo "Consulta ejecutada: <br><span>$sql</span><br>";
+    try {
+        $filasAfectadas = $conexion->exec($sql);
+        echo "Se ha modificado $filasAfectadas videojuego(s)<br>";
+    } catch (PDOException $th) {
+        echo "Algo ha fallado en la consulta.<br>";
+    }
+}
 
+function buscarVideojuego(int $id) {
+    $toret = [];
+    $conexion = getConexion();
+
+    $sql = "SELECT * FROM videojuegos WHERE id = $id";
+    $resultado = $conexion->query($sql);
+    $toret = $resultado->fetch();
+    $conexion = null;
+    return $toret;
+}
+
+function buscarMaximoId() {
+    $toret = [];
+    $conexion = getConexion();
+
+    $sql = "SELECT max(id) from videojuegos";
+    $resultado = $conexion->query($sql);
+    $toret = $resultado->fetch();
+    $conexion = null;
+    return $toret;
 }
 
 function getVideojuego(): array
