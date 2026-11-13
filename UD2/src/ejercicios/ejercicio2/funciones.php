@@ -1,6 +1,6 @@
 <?php
 // Definicion de constantes de la BD
-define('DB_DSN', 'mysql:host=mariadb;dbname=e_332');
+define('DB_DSN', 'mysql:host=db;dbname=e_332');
 define('DB_USER', 'root');
 define('DB_PASS', 'bitnami');
 

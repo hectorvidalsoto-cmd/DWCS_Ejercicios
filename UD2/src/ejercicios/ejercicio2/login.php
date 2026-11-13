@@ -1,3 +1,9 @@
+<?php
+    //Si el usuario y la contraseña COINCIDEN entonces creo una variable de sesión que me diga que está logueado.
+    if(comprobar_usuario($_POST("nic"),$_POST("pass"))) {
+        session_start();
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

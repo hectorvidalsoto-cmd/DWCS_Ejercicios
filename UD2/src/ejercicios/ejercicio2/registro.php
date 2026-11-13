@@ -8,13 +8,13 @@
 </head>
 <?php
 //Comprobamos si nos llegan datos del cliente.
-$nombre = $_POST['nombre'] ?: null;
-$ap1 = $_POST['ape1'] ?: null;
-$ap2 = $_POST['ape2'] ?: null;
-$mail = $_POST['mail'] ?: null;
-$nic = $_POST['nic'] ?: null;
-$pass = $_POST['pass'] ?: null;
-$pass2 = $_POST['pass2'] ?: null;
+$nombre = $_POST['nombre'] ?? null;
+$ap1 = $_POST['ape1'] ?? null;
+$ap2 = $_POST['ape2'] ?? null;
+$mail = $_POST['mail'] ?? null;
+$nic = $_POST['nic'] ?? null;
+$pass = $_POST['pass'] ?? null;
+$pass2 = $_POST['pass2'] ?? null;
 if (isset($nombre) && isset($ap1) && isset($mail) && isset($nic) && isset($pass) && isset($pass2)) {
     include("funciones.php");
     //Realizamos el alta
